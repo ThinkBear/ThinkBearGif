@@ -1,12 +1,10 @@
 package cn.thinkbear.gif.gui.dialog;
 
-import java.awt.AWTEvent;
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Cursor;
 import java.awt.Point;
 import java.awt.Toolkit;
-import java.awt.event.AWTEventListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.io.File;
@@ -81,13 +79,6 @@ public class MainDialog extends BaseDialog {
 		this.mainPanel.addMouseMotionListener(moveEvent);
 		this.mainPanel.addMouseListener(moveEvent);
 
-		Toolkit.getDefaultToolkit().addAWTEventListener(new AWTEventListener() {
-			
-			@Override
-			public void eventDispatched(AWTEvent event) {
-				System.out.println(event.getSource());
-			}
-		}, AWTEvent.KEY_EVENT_MASK);
 		super.getDialog().addMouseMotionListener(new MouseResizeEvent());
 		super.getDialog().setUndecorated(true);
 		super.getDialog().setBounds(ConfigUtils.getInstance().getScreenRect());
